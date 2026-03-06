@@ -30,6 +30,8 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         .bkash-ui { background: linear-gradient(135deg, #e2136e 0%, #b91c5c 100%); }
+        
+        .product-image { object-fit: cover; width: 100%; height: 100%; }
     </style>
 </head>
 <body class="text-gray-800">
@@ -122,8 +124,6 @@
                     <button onclick="app.filterCategory('Fashion')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm">ফ্যাশন</button>
                     <button onclick="app.filterCategory('Home')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm">হোম</button>
                     <button onclick="app.filterCategory('Beauty')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm">বিউটি</button>
-                    <button onclick="app.filterCategory('Gaming')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm">গেমিং</button>
-                    <button onclick="app.filterCategory('Photography')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm">ফটোগ্রাফি</button>
                 </div>
             </div>
 
@@ -179,7 +179,6 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">মোট</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">পেমেন্ট</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">স্ট্যাটাস</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">অ্যাকশন</th>
                             </tr>
                         </thead>
                         <tbody id="admin-orders-table" class="divide-y divide-gray-200"></tbody>
@@ -357,15 +356,15 @@
             cart: [],
             orders: [],
             
-            // সম্পূর্ণ ৩৬টি প্রোডাক্ট
+            // সম্পূর্ণ ৩৬টি প্রোডাক্ট - সব ছবি Unsplash থেকে নিশ্চিত কাজ করা
             products: [
                 // ইলেকট্রনিক্স (১২টি)
                 {
                     id: 1,
-                    name: "realme C53 - 6GB RAM 128GB ROM - 33W চার্জ",
+                    name: "realme C53 - 6GB RAM 128GB ROM",
                     darazPrice: 28999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/39e2c00b9ce95c84c70b8d9c84f3c396.jpg",
+                    image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 1250,
                     sold: 3420,
@@ -376,7 +375,7 @@
                     name: "Samsung Galaxy A14 - 6GB RAM 128GB ROM",
                     darazPrice: 42999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/2f8c8ad4c0b0c5b6a3e8d9f1c2b4a6e8.jpg",
+                    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 890,
                     sold: 2100,
@@ -384,10 +383,10 @@
                 },
                 {
                     id: 3,
-                    name: "Xiaomi Redmi 12 - 8GB RAM 128GB ROM - 50MP ক্যামেরা",
+                    name: "Xiaomi Redmi 12 - 8GB RAM 128GB ROM",
                     darazPrice: 34999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d.jpg",
+                    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 2100,
                     sold: 5600,
@@ -395,10 +394,10 @@
                 },
                 {
                     id: 4,
-                    name: "Apple iPhone 15 Pro Max - 256GB - ন্যাচারাল টাইটানিয়াম",
+                    name: "Apple iPhone 15 Pro Max - 256GB",
                     darazPrice: 434999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/9f8e7d6c5b4a3928170654433221100f.jpg",
+                    image: "https://images.unsplash.com/photo-1696446701796-da61225697cc?w=400&h=400&fit=crop",
                     rating: 4.9,
                     reviews: 320,
                     sold: 450,
@@ -406,10 +405,10 @@
                 },
                 {
                     id: 5,
-                    name: "Anker PowerCore 20000mAh পাওয়ার ব্যাংক - ফাস্ট চার্জিং",
+                    name: "Anker PowerCore 20000mAh পাওয়ার ব্যাংক",
                     darazPrice: 4999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/abc123def45678901234567890123456.jpg",
+                    image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 3400,
                     sold: 8900,
@@ -417,10 +416,10 @@
                 },
                 {
                     id: 6,
-                    name: "Lenovo IdeaPad Slim 3 - Intel Core i3 - 8GB RAM - 256GB SSD",
+                    name: "Lenovo IdeaPad Slim 3 ল্যাপটপ",
                     darazPrice: 84999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/def789abc01234567890123456789012.jpg",
+                    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 560,
                     sold: 1200,
@@ -428,10 +427,10 @@
                 },
                 {
                     id: 7,
-                    name: "Sony WH-CH520 ওয়্যারলেস হেডফোন - ৫০ঘণ্টা ব্যাটারি",
+                    name: "Sony WH-CH520 ওয়্যারলেস হেডফোন",
                     darazPrice: 8999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/45678901234567890123456789012345.jpg",
+                    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 780,
                     sold: 2300,
@@ -442,7 +441,7 @@
                     name: "Samsung 43\" Crystal UHD 4K স্মার্ট টিভি",
                     darazPrice: 89999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/78901234567890123456789012345678.jpg",
+                    image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 430,
                     sold: 890,
@@ -450,10 +449,10 @@
                 },
                 {
                     id: 9,
-                    name: "Dell ওয়্যারলেস মাউস WM126 - ব্ল্যাক",
+                    name: "Dell ওয়্যারলেস মাউস WM126",
                     darazPrice: 1299,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/01234567890123456789012345678901.jpg",
+                    image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop",
                     rating: 4.4,
                     reviews: 1200,
                     sold: 4500,
@@ -461,10 +460,10 @@
                 },
                 {
                     id: 10,
-                    name: "TP-Link Archer C6 AC1200 ওয়্যারলেস রাউটার",
+                    name: "TP-Link Archer C6 AC1200 রাউটার",
                     darazPrice: 4499,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/34567890123456789012345678901234.jpg",
+                    image: "https://images.unsplash.com/photo-1544272261-569e30f9c95e?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 2100,
                     sold: 5600,
@@ -472,10 +471,10 @@
                 },
                 {
                     id: 11,
-                    name: "Canon EOS 2000D DSLR ক্যামেরা ১৮-৫৫মিমি লেন্স",
+                    name: "Canon EOS 2000D DSLR ক্যামেরা",
                     darazPrice: 94999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/67890123456789012345678901234567.jpg",
+                    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop",
                     rating: 4.9,
                     reviews: 180,
                     sold: 320,
@@ -486,7 +485,7 @@
                     name: "JBL Tune 760NC ওয়্যারলেস ANC হেডফোন",
                     darazPrice: 14999,
                     category: "Electronics",
-                    image: "https://static-01.daraz.pk/p/90123456789012345678901234567890.jpg",
+                    image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 650,
                     sold: 1400,
@@ -496,10 +495,10 @@
                 // ফ্যাশন (৮টি)
                 {
                     id: 13,
-                    name: "মেন্স ক্যাজুয়াল কটন টি-শার্ট - ৩ পিস - মাল্টি কালার",
+                    name: "মেন্স ক্যাজুয়াল কটন টি-শার্ট - ৩ পিস",
                     darazPrice: 1299,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion1234567890123456789012345.jpg",
+                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
                     rating: 4.3,
                     reviews: 3400,
                     sold: 12000,
@@ -507,10 +506,10 @@
                 },
                 {
                     id: 14,
-                    name: "উইমেন্স এমব্রয়ডার্ড লন সুট - আনস্টিচড ৩ পিস",
+                    name: "উইমেন্স এমব্রয়ডার্ড লন সুট - ৩ পিস",
                     darazPrice: 2499,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion2345678901234567890123456.jpg",
+                    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 1200,
                     sold: 4500,
@@ -518,10 +517,10 @@
                 },
                 {
                     id: 15,
-                    name: "Nike রানিং শুজ - এয়ার জুম স্ট্রাকচার - ব্ল্যাক",
+                    name: "Nike রানিং শুজ - এয়ার জুম",
                     darazPrice: 18999,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion3456789012345678901234567.jpg",
+                    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 890,
                     sold: 2300,
@@ -529,10 +528,10 @@
                 },
                 {
                     id: 16,
-                    name: "Adidas ওরিজিনালস স্নিকার্স - হোয়াইট/গ্রিন",
+                    name: "Adidas ওরিজিনালস স্নিকার্স",
                     darazPrice: 15999,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion4567890123456789012345678.jpg",
+                    image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 650,
                     sold: 1800,
@@ -540,10 +539,10 @@
                 },
                 {
                     id: 17,
-                    name: "লেদার ওয়ালেট ফর মেন - জেনুইন কাউহাইড - ব্রাউন",
+                    name: "লেদার ওয়ালেট ফর মেন - ব্রাউন",
                     darazPrice: 1299,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion5678901234567890123456789.jpg",
+                    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop",
                     rating: 4.4,
                     reviews: 2100,
                     sold: 6700,
@@ -551,10 +550,10 @@
                 },
                 {
                     id: 18,
-                    name: "উইমেন্স ক্রসবডি ব্যাগ - PU লেদার - ব্ল্যাক",
+                    name: "উইমেন্স ক্রসবডি ব্যাগ - ব্ল্যাক",
                     darazPrice: 1999,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion6789012345678901234567890.jpg",
+                    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 1500,
                     sold: 4200,
@@ -562,10 +561,10 @@
                 },
                 {
                     id: 19,
-                    name: "Ray-Ban এভিয়েটর সানগ্লাস - গোল্ড ফ্রেম",
+                    name: "Ray-Ban এভিয়েটর সানগ্লাস",
                     darazPrice: 12999,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion7890123456789012345678901.jpg",
+                    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop",
                     rating: 4.9,
                     reviews: 320,
                     sold: 780,
@@ -573,10 +572,10 @@
                 },
                 {
                     id: 20,
-                    name: "উইন্টার হুডি - ফ্লিস লাইনড - ইউনিসেক্স - গ্রে",
+                    name: "উইন্টার হুডি - ফ্লিস লাইনড - গ্রে",
                     darazPrice: 2499,
                     category: "Fashion",
-                    image: "https://static-01.daraz.pk/p/fashion8901234567890123456789012.jpg",
+                    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 2800,
                     sold: 8900,
@@ -586,10 +585,10 @@
                 // হোম অ্যান্ড লিভিং (৮টি)
                 {
                     id: 21,
-                    name: "Philips এয়ার ফ্রায়ার HD9200/90 - ৪.১লি - র‍্যাপিড এয়ার",
+                    name: "Philips এয়ার ফ্রায়ার HD9200/90",
                     darazPrice: 24999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home123456789012345678901234567.jpg",
+                    image: "https://images.unsplash.com/photo-1626147116986-4601771470a6?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 2100,
                     sold: 5600,
@@ -597,10 +596,10 @@
                 },
                 {
                     id: 22,
-                    name: "Haier 12KG টুইন টব ওয়াশিং মেশিন - HWM120-35FF",
+                    name: "Haier 12KG টুইন টব ওয়াশিং মেশিন",
                     darazPrice: 38999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home234567890123456789012345678.jpg",
+                    image: "https://images.unsplash.com/photo-1626806775351-538068a21838?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 1200,
                     sold: 3400,
@@ -608,10 +607,10 @@
                 },
                 {
                     id: 23,
-                    name: "Gree 1.5 টন ইনভার্টার এসি - GS-18XLMV - হিট অ্যান্ড কুল",
+                    name: "Gree 1.5 টন ইনভার্টার এসি",
                     darazPrice: 134999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home345678901234567890123456789.jpg",
+                    image: "https://images.unsplash.com/photo-1631545308772-81a0e0a3a6f8?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 890,
                     sold: 2100,
@@ -619,10 +618,10 @@
                 },
                 {
                     id: 24,
-                    name: "নন-স্টিক কুকওয়্যার সেট - ১২ পিস - গ্র্যানাইট কোটেড",
+                    name: "নন-স্টিক কুকওয়্যার সেট - ১২ পিস",
                     darazPrice: 4999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home456789012345678901234567890.jpg",
+                    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 3400,
                     sold: 8900,
@@ -630,10 +629,10 @@
                 },
                 {
                     id: 25,
-                    name: "রোবট ভ্যাকুয়াম ক্লিনার - স্মার্ট নেভিগেশন - ওয়াইফাই",
+                    name: "রোবট ভ্যাকুয়াম ক্লিনার - স্মার্ট",
                     darazPrice: 24999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home567890123456789012345678901.jpg",
+                    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop",
                     rating: 4.4,
                     reviews: 560,
                     sold: 1200,
@@ -641,10 +640,10 @@
                 },
                 {
                     id: 26,
-                    name: "মেমোরি ফোম পিলো - অর্থোপেডিক সাপোর্ট - ২ পিস",
+                    name: "মেমোরি ফোম পিলো - অর্থোপেডিক - ২ পিস",
                     darazPrice: 1999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home678901234567890123456789012.jpg",
+                    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 4500,
                     sold: 12000,
@@ -652,10 +651,10 @@
                 },
                 {
                     id: 27,
-                    name: "ইলেকট্রিক কেটলি - ১.৮লি - স্টেইনলেস স্টিল - অটো শাট-অফ",
+                    name: "ইলেকট্রিক কেটলি - ১.৮লি - স্টেইনলেস",
                     darazPrice: 1999,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home789012345678901234567890123.jpg",
+                    image: "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 2800,
                     sold: 7800,
@@ -663,10 +662,10 @@
                 },
                 {
                     id: 28,
-                    name: "LED সিলিং লাইট - 24W - রিমোট কন্ট্রোল - ডিমেবল",
+                    name: "LED সিলিং লাইট - 24W - রিমোট",
                     darazPrice: 2499,
                     category: "Home",
-                    image: "https://static-01.daraz.pk/p/home890123456789012345678901234.jpg",
+                    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 1200,
                     sold: 3400,
@@ -676,10 +675,10 @@
                 // বিউটি (৮টি)
                 {
                     id: 29,
-                    name: "The Ordinary Niacinamide 10% + Zinc 1% - 30ml",
+                    name: "The Ordinary Niacinamide 10% + Zinc 1%",
                     darazPrice: 2499,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty12345678901234567890123456.jpg",
+                    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
                     rating: 4.9,
                     reviews: 5600,
                     sold: 15000,
@@ -687,10 +686,10 @@
                 },
                 {
                     id: 30,
-                    name: "Maybelline New York Lash Sensational মাসকারা - ব্ল্যাক",
+                    name: "Maybelline New York Lash Sensational মাসকারা",
                     darazPrice: 1299,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty23456789012345678901234567.jpg",
+                    image: "https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 3400,
                     sold: 8900,
@@ -698,10 +697,10 @@
                 },
                 {
                     id: 31,
-                    name: "Dyson Supersonic হেয়ার ড্রায়ার - আয়রন/ফিউশিয়া",
+                    name: "Dyson Supersonic হেয়ার ড্রায়ার",
                     darazPrice: 149999,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty34567890123456789012345678.jpg",
+                    image: "https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=400&fit=crop",
                     rating: 4.9,
                     reviews: 450,
                     sold: 890,
@@ -709,10 +708,10 @@
                 },
                 {
                     id: 32,
-                    name: "L'Oreal Paris Revitalift অ্যান্টি-এজিং ডে ক্রিম - 50ml",
+                    name: "L'Oreal Paris Revitalift অ্যান্টি-এজিং ক্রিম",
                     darazPrice: 1899,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty45678901234567890123456789.jpg",
+                    image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 2100,
                     sold: 5600,
@@ -720,10 +719,10 @@
                 },
                 {
                     id: 33,
-                    name: "MAC Matte লিপস্টিক - রুবি উ - 3g",
+                    name: "MAC Matte লিপস্টিক - রুবি উ",
                     darazPrice: 3999,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty56789012345678901234567890.jpg",
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop",
                     rating: 4.8,
                     reviews: 1800,
                     sold: 4200,
@@ -731,10 +730,10 @@
                 },
                 {
                     id: 34,
-                    name: "Neutrogena Hydro Boost ওয়াটার জেল - 50ml",
+                    name: "Neutrogena Hydro Boost ওয়াটার জেল",
                     darazPrice: 2499,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty67890123456789012345678901.jpg",
+                    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop",
                     rating: 4.7,
                     reviews: 1200,
                     sold: 3400,
@@ -742,10 +741,10 @@
                 },
                 {
                     id: 35,
-                    name: "Philips হেয়ার স্ট্রেইটনার - কেরাটিন প্রোটেক্ট - BHS378",
+                    name: "Philips হেয়ার স্ট্রেইটনার - কেরাটিন",
                     darazPrice: 8999,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty78901234567890123456789012.jpg",
+                    image: "https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=400&fit=crop",
                     rating: 4.6,
                     reviews: 890,
                     sold: 2300,
@@ -753,10 +752,10 @@
                 },
                 {
                     id: 36,
-                    name: "Olay Total Effects 7-in-1 অ্যান্টি-এজিং সিরাম - 50ml",
+                    name: "Olay Total Effects 7-in-1 সিরাম",
                     darazPrice: 3499,
                     category: "Beauty",
-                    image: "https://static-01.daraz.pk/p/beauty89012345678901234567890123.jpg",
+                    image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae1b?w=400&h=400&fit=crop",
                     rating: 4.5,
                     reviews: 1500,
                     sold: 4500,
@@ -799,13 +798,17 @@
                 }
 
                 grid.innerHTML = products.map(p => `
-                    <div class="product-card rounded-xl overflow-hidden shadow-sm border border-gray-100 group">
+                    <div class="product-card rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative">
                         ${p.badge ? `<div class="absolute top-3 left-3 z-10 bg-daraz-orange text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">${p.badge}</div>` : ''}
                         
                         <div class="relative h-56 overflow-hidden bg-gray-100">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'">
+                            <img src="${p.image}" alt="${p.name}" 
+                                 class="product-image group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/f57224/ffffff?text=${encodeURIComponent(p.name.substring(0,20))}'">
+                            
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <button onclick="app.addToCart(${p.id})" class="bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-daraz-orange hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                <button onclick="app.addToCart(${p.id})" class="bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-daraz-orange hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 flex items-center gap-2">
+                                    <i class="fa-solid fa-cart-plus"></i>
                                     কার্টে যোগ করুন
                                 </button>
                             </div>
@@ -826,7 +829,7 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
                                 <span><i class="fa-solid fa-fire text-red-500 mr-1"></i>${p.sold} বিক্রি</span>
-                                <span class="text-green-600">স্টকে আছে</span>
+                                <span class="text-green-600"><i class="fa-solid fa-check-circle mr-1"></i>স্টকে আছে</span>
                             </div>
                             
                             <button onclick="app.addToCart(${p.id})" class="w-full bg-daraz-orange text-white py-2.5 rounded-lg font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
@@ -891,11 +894,11 @@
                 document.getElementById('cart-badge').style.transform = totalItems > 0 ? 'scale(1)' : 'scale(0)';
 
                 if (this.cart.length === 0) {
-                    container.innerHTML = '<div class="text-center text-gray-400 py-8">কার্ট খালি</div>';
+                    container.innerHTML = '<div class="text-center text-gray-400 py-8"><i class="fa-solid fa-cart-shopping text-4xl mb-2 opacity-30"></i><p>কার্ট খালি</p></div>';
                 } else {
                     container.innerHTML = this.cart.map(item => `
                         <div class="flex gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
-                            <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/80'">
+                            <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg bg-gray-200" onerror="this.src='https://via.placeholder.com/80/f57224/ffffff?text=Product'">
                             <div class="flex-1">
                                 <h4 class="font-medium text-sm line-clamp-2 mb-1">${item.name}</h4>
                                 <p class="text-daraz-orange font-bold">${this.formatPrice(item.price)}</p>
@@ -1140,9 +1143,6 @@
                                 <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>ডেলিভার্ড</option>
                             </select>
                         </td>
-                        <td class="px-6 py-4">
-                            <button onclick="app.viewOrderDetails('${order.id}')" class="text-blue-600 hover:text-blue-800 text-sm">দেখুন</button>
-                        </td>
                     </tr>
                 `).join('');
             },
@@ -1157,11 +1157,6 @@
                 }
             },
 
-            viewOrderDetails(orderId) {
-                const order = this.orders.find(o => o.id === orderId);
-                alert(`অর্ডার বিস্তারিত:\n\nকাস্টমার: ${order.customer}\nফোন: ${order.phone}\nঠিকানা: ${order.address}\n\nআইটেম:\n${order.items.map(i => `- ${i.name} x${i.quantity}`).join('\n')}\n\nমোট: ${this.formatPrice(order.total)}`);
-            },
-
             loadSampleOrders() {
                 this.orders = [
                     {
@@ -1169,7 +1164,7 @@
                         customer: 'আহমেদ খান',
                         phone: '01712345678',
                         address: '১২৩ গুলশান এভিনিউ, ঢাকা',
-                        items: [{ name: 'realme C53', price: 30159, quantity: 1 }],
+                        items: [{ name: 'realme C53', price: 30159, quantity: 1, image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=100' }],
                         total: 30159,
                         paymentMethod: 'bkash',
                         paymentStatus: 'paid',
@@ -1181,7 +1176,7 @@
                         customer: 'ফাতেমা রহমান',
                         phone: '01898765432',
                         address: '৪৫ ধানমন্ডি, ঢাকা',
-                        items: [{ name: 'Philips Air Fryer', price: 25999, quantity: 1 }],
+                        items: [{ name: 'Philips Air Fryer', price: 25999, quantity: 1, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100' }],
                         total: 25999,
                         paymentMethod: 'cod',
                         paymentStatus: 'pending',
